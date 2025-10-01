@@ -1,0 +1,52 @@
+id,id_product_detail,name,value_name
+1,1,Marca,Apple
+2,1,Modelo,iPhone 14 Pro Max
+3,1,Almacenamiento,256 GB
+4,1,Color,Space Black
+5,1,Sistema operativo,iOS
+6,2,Marca,Samsung
+7,2,Modelo,Galaxy S23 Ultra
+8,2,Almacenamiento,512 GB
+9,2,Color,Phantom Black
+10,2,Sistema operativo,Android
+11,3,Marca,Apple
+12,3,Modelo,MacBook Pro
+13,3,Procesador,Apple M2
+14,3,Memoria RAM,16 GB
+15,3,Almacenamiento,512 GB SSD
+16,3,Pantalla,16 pulgadas
+17,4,Marca,Apple
+18,4,Modelo,iPad Pro
+19,4,Procesador,Apple M2
+20,4,Pantalla,12.9 pulgadas
+21,4,Almacenamiento,128 GB
+22,5,Marca,Sony
+23,5,Modelo,PlayStation 5
+24,5,Tipo,Standard Edition
+25,5,Almacenamiento,825 GB SSD
+26,5,Resolución,4K
+27,6,Marca,Nintendo
+28,6,Modelo,Switch OLED
+29,6,Pantalla,7 pulgadas OLED
+30,6,Almacenamiento,64 GB
+31,6,Estado,Usado
+32,7,Marca,Dell
+33,7,Modelo,XPS 13
+34,7,Procesador,Intel Core i7
+35,7,Memoria RAM,16 GB
+36,7,Pantalla,13.3 pulgadas
+37,8,Marca,Apple
+38,8,Modelo,AirPods Pro
+39,8,Generación,2da
+40,8,Cancelación de ruido,Activa
+41,8,Conectividad,Bluetooth 5.3
+42,9,Marca,Xiaomi
+43,9,Modelo,Redmi Note 12 Pro
+44,9,Almacenamiento,256 GB
+45,9,Memoria RAM,8 GB
+46,9,Sistema operativo,Android
+47,10,Marca,LG
+48,10,Tipo,Monitor UltraWide
+49,10,Tamaño,34 pulgadas
+50,10,Resolución,4K
+51,10,Conectividad,USB-C

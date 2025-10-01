@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <!-- Table creation changesets -->
+    <include file="changes/001-create-product-detail-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/002-create-attribute-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/005-create-shipping-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/007-create-seller-table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/008-create-seller-address-table.xml" relativeToChangelogFile="true"/>
+    
+    <!-- Index creation changesets -->
+    <include file="changes/011-create-index-product-id.xml" relativeToChangelogFile="true"/>
+    
+    <!-- Data loading changesets -->
+    <include file="changes/003-load-product-detail-data.xml" relativeToChangelogFile="true"/>
+    <include file="changes/004-load-attribute-data.xml" relativeToChangelogFile="true"/>
+    <include file="changes/006-load-shipping-data.xml" relativeToChangelogFile="true"/>
+    <include file="changes/009-load-seller-data.xml" relativeToChangelogFile="true"/>
+    <include file="changes/010-load-seller-address-data.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

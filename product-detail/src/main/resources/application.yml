@@ -1,0 +1,106 @@
+spring:
+  application:
+    name: product-detail
+  profiles:
+    active: dev
+  banner:
+    location: classpath:banner.txt
+  main:
+    banner-mode: console
+
+  # Configuración de base de datos
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/MeliChallenge;AUTO_SERVER=TRUE
+    username: sa
+    password: ""
+  
+  # JPA/Hibernate configuration
+  jpa:
+    hibernate:
+      ddl-auto: none  # Cambiado a 'none' para que Liquibase maneje la creación de tablas
+    show-sql: true
+  
+  # Configuración de Liquibase
+  liquibase:
+    enabled: true  # Activado para ver la creación de tablas
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    drop-first: true  # No eliminar esquema al inicio
+
+  # H2 Console (solo para desarrollo)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  config:
+    import: "optional:configserver:http://localhost:7777"
+
+server:
+  port: 8080
+  tomcat:
+    mbeanregistry:
+      enabled: true
+    threads:
+      max: 25
+      min-spare: 2  
+  servlet:
+    context-path: /product-detail
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+  api-docs:
+    path: /v3/api-docs
+
+# Configuración principal de tracing (para endpoints de aplicación)
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # 100% para endpoints de aplicación
+    enabled: true  # 
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+  
+  # Configuración de endpoints de actuator
+  endpoints:
+    web:
+      exposure:
+        include: info,health,metrics,prometheus
+    access:
+      default: unrestricted
+  
+  # Configuración de métricas
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 30s
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  
+  endpoint:
+    health:
+      show-details: when-authorized
+    metrics:
+      access: unrestricted
+    prometheus:
+      access: unrestricted
+
+# Configuración específica para micrometer tracing
+logging:
+  level:
+    '[io.micrometer.tracing]': WARN
+    '[brave]': WARN
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"
+    prefer-ip-address: true
+    ip-address: localhost 
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

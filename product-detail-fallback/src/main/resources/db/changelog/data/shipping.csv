@@ -1,0 +1,11 @@
+id,id_product_detail,free_shipping,logistic_type,mode
+1,1,true,fulfillment,me2
+2,2,false,cross_docking,me1
+3,3,true,fulfillment,me2
+4,4,true,fulfillment,me2
+5,5,false,cross_docking,me1
+6,6,true,drop_off,me1
+7,7,true,fulfillment,me2
+8,8,true,fulfillment,me2
+9,9,false,cross_docking,me1
+10,10,true,fulfillment,me2

@@ -1,0 +1,61 @@
+# Configuración para perfil de testing
+# Se usa una base de datos H2 completamente en memoria para tests
+
+# Configuración del servidor para tests
+server:
+  port: 0  # Puerto aleatorio para evitar conflictos
+
+# Configuración de base de datos H2 para tests
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  
+  # Configuración JPA para tests
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none  # Liquibase maneja el schema
+    show-sql: false  # Desactivar para tests más limpios
+    properties:
+      hibernate:
+        format_sql: false
+
+  # Configuración H2 Console deshabilitada para tests
+  h2:
+    console:
+      enabled: false
+
+  # Configuración Liquibase para tests
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: true
+    drop-first: true  # Limpiar schema antes de cada test suite
+
+# Configuración de trazabilidad para tests (deshabilitada)
+management:
+  tracing:
+    sampling:
+      probability: 0.0  # No sampling para tests
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+  endpoints:
+    web:
+      exposure:
+        include: health,info  # Solo endpoints básicos para tests
+
+# Logging más silencioso para tests
+logging:
+  level:
+    com.meli.product_detail: DEBUG
+    liquibase: WARN
+    org.hibernate: WARN
+    org.springframework: WARN
+    root: WARN
+
+# Configuración específica de la aplicación para tests
+app:
+  test-mode: true

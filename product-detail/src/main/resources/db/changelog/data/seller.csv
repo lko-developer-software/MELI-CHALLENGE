@@ -1,0 +1,11 @@
+id,id_product_detail,nickname,seller_type
+1,1,TechStore_AR,professional
+2,2,SamsungOfficial_MLA,official_store
+3,3,AppleAuthorized_AR,professional
+4,4,iDevices_Premium,professional
+5,5,GameZone_AR,professional
+6,6,RetroGaming_MLA,casual_seller
+7,7,CompuWorld_AR,professional
+8,8,AudioTech_Premium,professional
+9,9,XiaomiStore_AR,official_store
+10,10,MonitorPro_AR,professional

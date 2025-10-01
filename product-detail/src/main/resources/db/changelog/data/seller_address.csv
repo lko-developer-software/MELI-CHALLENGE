@@ -1,0 +1,11 @@
+id,id_seller,city,state,country,zip_code
+1,1,Buenos Aires,CABA,Argentina,C1000
+2,2,Córdoba,Córdoba,Argentina,X5000
+3,3,Rosario,Santa Fe,Argentina,S2000
+4,4,La Plata,Buenos Aires,Argentina,B1900
+5,5,Mendoza,Mendoza,Argentina,M5500
+6,6,Mar del Plata,Buenos Aires,Argentina,B7600
+7,7,Tucumán,Tucumán,Argentina,T4000
+8,8,Neuquén,Neuquén,Argentina,Q8300
+9,9,Salta,Salta,Argentina,A4400
+10,10,San Juan,San Juan,Argentina,J5400

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <changeSet id="003-load-product-detail-data" author="system">
+        <loadData 
+            file="db/changelog/data/product_detail.csv"
+            tableName="product_detail"
+            separator=","
+            quotchar="&quot;">
+            <column name="id" type="NUMERIC"/>
+            <column name="product_id" type="STRING"/>
+            <column name="title" type="STRING"/>
+            <column name="condition" type="STRING"/>
+            <column name="category_id" type="STRING"/>
+            <column name="listing_type_id" type="STRING"/>
+            <column name="site_id" type="STRING"/>
+            <column name="price" type="NUMERIC"/>
+            <column name="currency_id" type="STRING"/>
+            <column name="available_quantity" type="NUMERIC"/>
+            <column name="sold_quantity" type="NUMERIC"/>
+            <column name="buying_mode" type="STRING"/>
+            <column name="status" type="STRING"/>
+            <column name="permalink" type="STRING"/>
+            <column name="thumbnail" type="STRING"/>
+            <column name="pictures" type="STRING"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

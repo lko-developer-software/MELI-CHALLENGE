@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: config-server
+  banner:
+    location: classpath:banner.txt
+  main:
+    banner-mode: console
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lko-developer-software/MELI.git
+          default-label: main
+server:
+  port: 7777
+
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true

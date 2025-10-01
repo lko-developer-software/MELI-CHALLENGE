@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    default: meli-auth
+  banner:
+    location: classpath:banner.txt
+  main:
+    banner-mode: console
+server:
+  port: 4040
+eureka:
+  instance:
+     instance-id: "${spring.application.name}:${random.value}"
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+    

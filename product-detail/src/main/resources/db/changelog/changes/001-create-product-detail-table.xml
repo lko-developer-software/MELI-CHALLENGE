@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <changeSet id="001-create-product-detail-table" author="system">
+        <createTable tableName="product_detail">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="title" type="VARCHAR(500)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="condition" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="category_id" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="listing_type_id" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="site_id" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="price" type="DECIMAL(19,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="currency_id" type="VARCHAR(10)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="available_quantity" type="INT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sold_quantity" type="INT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="buying_mode" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="permalink" type="VARCHAR(1000)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="thumbnail" type="VARCHAR(1000)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="pictures" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

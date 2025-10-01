@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <changeSet id="010-load-seller-address-data" author="system">
+        <loadData 
+            file="db/changelog/data/seller_address.csv"
+            tableName="seller_address"
+            separator=","
+            quotchar="&quot;">
+            <column name="id" type="NUMERIC"/>
+            <column name="id_seller" type="NUMERIC"/>
+            <column name="city" type="STRING"/>
+            <column name="state" type="STRING"/>
+            <column name="country" type="STRING"/>
+            <column name="zip_code" type="STRING"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

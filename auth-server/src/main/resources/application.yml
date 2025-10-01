@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    default: Dev
+  application:
+    name: auth-server
+  banner:
+    location: classpath:banner.txt
+  main:
+    banner-mode: console
+  h2:
+    console:
+      enabled: false
+  config:
+    import: "optional:configserver:http://localhost:7777"
+  datasource:
+    url: jdbc:h2:mem:users;
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+server:
+  port: 3030
+  servlet:
+    context-path: /auth-server
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"
+    prefer-ip-address: true
+    ip-address: localhost 
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

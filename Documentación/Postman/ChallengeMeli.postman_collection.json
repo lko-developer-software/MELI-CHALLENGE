@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "fd947d87-89b6-4c62-aee9-bd8216d9a617",
+		"name": "ChallengeMeli",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38406315"
+	},
+	"item": [
+		{
+			"name": "Config-Server",
+			"item": [
+				{
+					"name": "/product-detail/dev",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/product-detail/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"product-detail",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/auth-server/dev",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/auth-server/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"auth-server",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-detail-fallback/dev",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/product-detail-fallback/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"product-detail-fallback",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "Token auth2.0",
+					"item": [
+						{
+							"name": "Generar Token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"adminDev\",\r\n    \"password\":\"admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4040/auth-server/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4040",
+									"path": [
+										"auth-server",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Tokens",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Refresh-Token",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkRldiIsImlhdCI6MTc1OTI3Mjc1OSwiZXhwIjoxNzU5ODc3NTU5LCJ0eXBlIjoicmVmcmVzaF90b2tlbiJ9.luCRyzsds4RKpFUfZoapg6VoMgidFlPWIRatEBsA127N5eTmCSLJCSo2Iigb_mAzgbAgfWujk7Kv-pKFyFVSPg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4040/auth-server/auth/refresh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4040",
+									"path": [
+										"auth-server",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Valida Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accessToken",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkRldiIsImlhdCI6MTc1OTI4MTI2NywiZXhwIjoxNzU5MjgzMDY3LCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWQiOjEsIm5vbWJyZSI6Ik9zbmVpZGVyIiwiYXBlbGxpZG8iOiJBY2V2ZWRvIiwiZW1haWwiOiJhZG1pbkBtZWxpLmNvbSIsInRlbGVmb25vIjoiMzAwMTExMjIzMyIsImRpcmVjY2lvbiI6IkNhbGxlIDEgIzItMyIsInJvbCI6IkFETUlOIiwiY2FyZ28iOiJBZG1pbmlzdHJhZG9yIiwibWxfaWQiOiJNTEEwMDAxIiwiZXN0YWRvIjoiQUNUSVZPIiwiZmVjaGFfcmVnaXN0cm8iOiIyMDIzLTAxLTAxIn0.D1g5ZyWdWiSDEGikQ-477mlN4XrgtZqUds31OvePqvCl-CE8TTfBdDxY8PAmQIWyVgVt-zTSwMT-9ag3I-3lZw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4040/auth-server/auth/jwt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4040",
+									"path": [
+										"auth-server",
+										"auth",
+										"jwt"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product-Detail",
+					"item": [
+						{
+							"name": "/product-detail/detail",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkRldiIsImlhdCI6MTc1OTI5NDM0NywiZXhwIjoxNzU5Mjk2MTQ3LCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWQiOjEsIm5vbWJyZSI6Ik9zbmVpZGVyIiwiYXBlbGxpZG8iOiJBY2V2ZWRvIiwiZW1haWwiOiJhZG1pbkBtZWxpLmNvbSIsInRlbGVmb25vIjoiMzAwMTExMjIzMyIsImRpcmVjY2lvbiI6IkNhbGxlIDEgIzItMyIsInJvbCI6IkFETUlOIiwiY2FyZ28iOiJBZG1pbmlzdHJhZG9yIiwibWxfaWQiOiJNTEEwMDAxIiwiZXN0YWRvIjoiQUNUSVZPIiwiZmVjaGFfcmVnaXN0cm8iOiIyMDIzLTAxLTAxIn0.GTtZxG3tPAjZbUuJaeO0Y8tGfEHJ0c1wkr4EdKUfPVOI92gQT2EBBqVfhL1oRAWVyrT76D-NXIOIhk6og_OlLg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4040/product-detail/detail",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4040",
+									"path": [
+										"product-detail",
+										"detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/product-detail/detail/{productId}",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkRldiIsImlhdCI6MTc1OTI5NDM0NywiZXhwIjoxNzU5Mjk2MTQ3LCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWQiOjEsIm5vbWJyZSI6Ik9zbmVpZGVyIiwiYXBlbGxpZG8iOiJBY2V2ZWRvIiwiZW1haWwiOiJhZG1pbkBtZWxpLmNvbSIsInRlbGVmb25vIjoiMzAwMTExMjIzMyIsImRpcmVjY2lvbiI6IkNhbGxlIDEgIzItMyIsInJvbCI6IkFETUlOIiwiY2FyZ28iOiJBZG1pbmlzdHJhZG9yIiwibWxfaWQiOiJNTEEwMDAxIiwiZXN0YWRvIjoiQUNUSVZPIiwiZmVjaGFfcmVnaXN0cm8iOiIyMDIzLTAxLTAxIn0.GTtZxG3tPAjZbUuJaeO0Y8tGfEHJ0c1wkr4EdKUfPVOI92gQT2EBBqVfhL1oRAWVyrT76D-NXIOIhk6og_OlLg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4040/product-detail/detail/MLA123456789",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4040",
+									"path": [
+										"product-detail",
+										"detail",
+										"MLA123456789"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product-Detail",
+			"item": [
+				{
+					"name": "/product-detail/detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eeJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWZhdWx0IiwiaWF0IjoxNzA1ODYzNDIxLCJleHAiOjE3MDU4NjcwMjF9.MGJJG7mOpLyCU2AdhtvYkbE8yF-y36f8dsT1U4Grx5qX8dcZmejMcyPH8bH7ILxQCN1L0YKoN5t1KWp_a6Hfaw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/product-detail/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-detail",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-detail/detail/{productId}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eeJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWZhdWx0IiwiaWF0IjoxNzA1ODYzNDIxLCJleHAiOjE3MDU4NjcwMjF9.MGJJG7mOpLyCU2AdhtvYkbE8yF-y36f8dsT1U4Grx5qX8dcZmejMcyPH8bH7ILxQCN1L0YKoN5t1KWp_a6Hfaw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/product-detail/detail/MLA123456789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-detail",
+								"detail",
+								"MLA123456789"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product-Detail -fallback",
+			"item": [
+				{
+					"name": "/product-detail-fallback/detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eeJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWZhdWx0IiwiaWF0IjoxNzA1ODYzNDIxLCJleHAiOjE3MDU4NjcwMjF9.MGJJG7mOpLyCU2AdhtvYkbE8yF-y36f8dsT1U4Grx5qX8dcZmejMcyPH8bH7ILxQCN1L0YKoN5t1KWp_a6Hfaw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8181/product-detail-fallback/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"product-detail-fallback",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-detail-fallback/detail/{productId}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "eeJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWZhdWx0IiwiaWF0IjoxNzA1ODYzNDIxLCJleHAiOjE3MDU4NjcwMjF9.MGJJG7mOpLyCU2AdhtvYkbE8yF-y36f8dsT1U4Grx5qX8dcZmejMcyPH8bH7ILxQCN1L0YKoN5t1KWp_a6Hfaw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8181/product-detail-fallback/detail/MLA123456789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"product-detail-fallback",
+								"detail",
+								"MLA123456789"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
